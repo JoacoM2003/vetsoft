@@ -2,13 +2,13 @@ name: Deploy to Render
 
 on:
   release:
-    types: [published]  # Cuando se crea una release nueva
+    types: [published]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Trigger Render Deploy
+    - name: Trigger Render Deploy Hook
       run: |
-        curl -X POST https://api.render.com/deploy/srv-xxxxxxxxxx?key=YOUR_API_KEY
+        curl -X GET "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
