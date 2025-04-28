@@ -1,0 +1,16 @@
+# Archivos y directorios generados por Django
+*.pyc
+__pycache__/
+*.sqlite3
+
+# Archivos de registro y datos de la aplicación
+logs/
+data/
+
+# Directorio de entorno virtual de Python
+venv/
+
+# Otros archivos y directorios temporales o locales
+*.log
+*.bak
+.DS_Store

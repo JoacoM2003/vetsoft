@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <form class="vstack gap-3 {% if vet_errors %}was-validated{% endif %}"
+                aria-label="Formulario de creación de Veterinario"
+                method="POST"
+                action="{% url 'vets_form' %}"
+                novalidate>
+
+                {% csrf_token %}
+
+                <input type="hidden" value="{{ vet.id }}" name="id" />
+
+                <div>
+                    <label for="vet_name" class="form-label">Nombre</label>
+                    <input type="text"
+                        id="vet_name"
+                        name="name"
+                        value="{{vet.name}}"
+                        class="form-control"
+                        required/>
+
+                    {% if vet_errors.name %}
+                        <div class="invalid-feedback">
+                            {{ vet_errors.name }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div>
+                    <label for="vet_phone" class="form-label">Teléfono</label>
+                    <input type="number"
+                        id="vet_phone"
+                        name="phone"
+                        class="form-control"
+                        value="{{vet.phone}}"
+                        required/>
+
+                    {% if vet_errors.phone %}
+                        <div class="invalid-feedback">
+                            {{ vet_errors.phone }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div>
+                    <label for="vet_email" class="form-label">Email</label>
+                    <input type="email"
+                        id="vet_email"
+                        name="email"
+                        class="form-control"
+                        value="{{ vet.email }}"
+                        required/>
+
+                    {% if vet_errors.email %}
+                        <div class="invalid-feedback">
+                            {{ vet_errors.email }}
+                        </div>
+                    {% endif %}
+                </div>
+                <div>
+                    <label for="vet_address" class="form-label">Dirección</label>
+                    <input type="text"
+                        id="vet_address"
+                        name="address"
+                        value="{{vet.address}}"
+                        class="form-control" />
+
+                    <div class="invalid-feedback">
+                        La dirección es opcional
+                    </div>
+                </div>
+                <div>
+                    <label for="vet_especialidad" class="form-label">Especialidad</label>
+                    <input type="text"
+                        id="vet_especialidad"
+                        name="especialidad"
+                        value="{{vet.speciality}}"
+                        class="form-control"
+                        required/>
+
+                    {% if vet_errors.especialidad %}
+                        <div class="invalid-feedback">
+                            {{ vet_errors.especialidad }}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                
+
+                <button class="btn btn-primary">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
