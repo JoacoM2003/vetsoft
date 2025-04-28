@@ -29,7 +29,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     '[::1]',
-    'vetsoft-app-1-0.onrender.com',  # Agrega tu host de Render aquí
+    'vetsoft-9t8u.onrender.com'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://vetsoft-app-1-0.onrender.com']
